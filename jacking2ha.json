@@ -1,0 +1,180 @@
+{
+   "config": {
+      "mqttHost": "",
+      "mqttPort": "",
+      "mqttUser": "",
+      "mqttPass": "",
+      "mqttCaCert": "",
+      "ccuJackUrl": "",
+      "ccuJackUser": "",
+      "ccuJackPass": "",
+      "ccuJackCaCert": "",
+      "ccuJackReadDevice": true,
+      "ccuJackReadProgram": true,
+      "ccuJackReadSysvar": true,
+      "ccuJackReadVirtdev": true,
+      "ccuJackBaseTopic": "",
+      "haDiscoveryTopic": "homeassistant",
+      "outputToJson": false,
+      "outputToMqtt": false,
+      "outputToYaml": true,
+      "createMiscEntities": true,
+      "enumerateRcButtons": true,
+      "mqttAbbreviations": true,
+      "languageId": 2,
+      "debug": false
+   },
+
+   "itemFilter": [
+      "ACTIVE_PROFILE", "ACTUAL_TEMPERATURE", "BATTERY_STATE", "BOOST_MODE", "BOOST_STATE", "BURST_LIMIT_WARNING", "CONFIG_PENDING", "DUTY_CYCLE",
+      "ERROR_DEGRADED_CHAMBER", "FROST_PROTECTION:1", "PARTY_MODE", "HUMIDITY", "LEVEL", "LOW_BAT", "LOWBAT", "OPERATING_VOLTAGE", "PRESS_SHORT",
+      "PRESS_LONG", "RSSI_DEVICE", "RSSI_PEER", "SET_POINT_TEMPERATURE", "SETPOINT", "SMOKE_DETECTOR_ALARM_STATUS", "SMOKE_DETECTOR_TEST_RESULT",
+      "STATE", "TEMPERATURE", "TIME_OF_OPERATION", "WINDOW_STATE"
+   ],
+
+   "customization": {
+      "~all": {
+         "~all": {
+            "ACTIVE_PROFILE": {
+               "name": "aktives Profil",
+               "icon": "mdi:selection-ellipse-arrow-inside"
+            },
+            "ACTUAL_TEMPERATURE": {
+               "name": "Aktuelle Temperatur",
+               "icon": "mdi:thermometer"
+            },
+            "BATTERY_STATE": {
+               "name": "Batteriespannung",
+               "icon": "mdi:flash-triangle-outline"
+            },
+            "BOOST_MODE": {
+               "name": "Boost Modus",
+               "icon": "mdi:chevron-triple-up"
+            },
+            "BURST_LIMIT_WARNING": {
+               "name": "Burst Limit",
+               "icon": "mdi:octagram-outline"
+            },
+            "CONFIG_PENDING": {
+               "name": "Konfiguration anstehend",
+               "icon": "mdi:receipt-text-clock-outline"
+            },
+            "DUTY_CYCLE": {
+               "name": "Duty Cycle",
+               "icon": "mdi:cog-transfer-outline"
+            },
+            "ERROR_DEGRADED_CHAMBER": {
+               "name": "Fehler Erkennungskammer",
+               "icon": "mdi:alert-circle-outline"
+            },
+            "FROST_PROTECTION": {
+               "name": "Frostschutzmodus",
+               "icon": "mdi:snowflake-alert"
+            },
+            "HUMIDITY": {
+               "name": "Luftfeuchtigkeit",
+               "icon": "mdi:water-percent"
+            },
+            "LEVEL": {
+               "name": "Ventilöffnung",
+               "icon": "mdi:valve"
+            },
+            "LOW_BAT": {
+               "name": "Batterie",
+               "icon": "mdi:battery-alert-variant-outline"
+            },
+            "LOWBAT": {
+               "name": "Batterie",
+               "icon": "mdi:battery-alert-variant-outline"
+            },
+            "OPERATING_VOLTAGE": {
+               "name": "Batteriespannung",
+               "icon": "mdi:flash-triangle-outline"
+            },
+            "PARTY_MODE": {
+               "name": "Party Modus",
+               "icon": "mdi:party-popper"
+            },
+            "PRESS_LONG": {
+               "name": "Tastendruck lang",
+               "icon": "mdi:button-pointer"
+            },
+            "PRESS_SHORT": {
+               "name": "Tastendruck kurz",
+               "icon": "mdi:button-pointer"
+            },
+            "RSSI_DEVICE": {
+               "name": "RSSI",
+               "icon": "mdi:radio-tower"
+            },
+            "RSSI_PEER": {
+               "name": "RSSI Peer",
+               "icon": "mdi:radio-tower"
+            },
+            "SET_POINT_TEMPERATURE": {
+               "name": "Zieltemperatur",
+               "icon": "mdi:thermometer-lines"
+            },
+            "SETPOINT": {
+               "name": "Zieltemperatur",
+               "icon": "mdi:thermometer-lines"
+            },
+            "SMOKE_DETECTOR_ALARM_STATUS": {
+               "name": "Alarmstatus",
+               "icon": "mdi:alert-circle-outline"
+            },
+            "SMOKE_DETECTOR_TEST_RESULT": {
+               "name": "Testergebnis",
+               "icon": "mdi:alert-circle-outline"
+            },
+            "STATE": {
+               "name": "Zustand",
+               "icon": "mdi:window-closed"
+            },
+            "TEMPERATURE": {
+               "name": "Aktuelle Temperatur",
+               "icon": "mdi:thermometer"
+            },
+            "TIME_OF_OPERATION": {
+               "name": "Laufzeit",
+               "icon": "mdi:archive-clock"
+            },
+            "WINDOW_STATE": {
+               "name": "Fenster",
+               "icon": "mdi:window-closed"
+            }
+         }
+      },
+      "OEQ0220986": {
+         "~all": {
+            "STATE": {
+               "icon": "mdi:door"
+            }
+         }
+      },
+      "BidCoS-RF": {
+         "1": {
+            "LEVEL": "-"
+         },
+         "2": {
+            "LEVEL": "-"
+         },
+         "3": "-"
+      },
+      "CUX4000001": "-",
+      "program": {
+         "0": {
+            "~all": {
+               "icon": "mdi:function-variant"
+            }
+         }
+      },
+      "sysvar": {
+         "0": {
+            "~all": {
+               "icon": "mdi:variable"
+            }
+         }
+      }
+   }
+}
