@@ -324,7 +324,7 @@ class Mdata():
     origin = {
         'name': 'Jacking2Ha',
         'sw_version': '0.1.1',
-        'support_url': 'https://github.com/elix-g/jacking2ha'
+        'support_url': 'https://github.com/Elix-g/Jacking2HA'
     }
     vTemplate = '{{ value_json.v }}'
     vTemplateBinary = '{{ value_json.v|bool }}'
