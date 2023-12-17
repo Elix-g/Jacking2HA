@@ -1,12 +1,13 @@
 # Jacking2HA
 
 
-## Kurzvorstellung
+## Kurzbeschreibung
 Auf der Suche nach Alternativen zur Homematic IP Integration für Home Assistant, bin ich auf die Möglichkeit gestoßen, meine CCU3-Zentrale per MQTT an Home Assistant anzubinden. Als Voraussetzung muss lediglich [CCU-Jack](https://github.com/mdzio/ccu-jack) als Add-On auf der Homematic-Zentrale laufen.
-
 Jacking2HA ist ein kleines Tool, um die MQTT Topics des CCU-Jack in Home Assistant bekannt zu machen. Dabei bestehen die Möglichkeiten, die Topics per MQTT Auto Discovery bekannt zu machen oder die Informationen in eine gebrauchsfertige yaml-Datei zu schreiben die dann in die Home Assistant Konfiguration eingebunden werden kann.
 
-Prinzipiell funktioniert das Ganze mit allen Bidcos- und Homematic IP-Geräten. Jacking2HA nimmt zuerst Verbindung zum VEAP-Server des CCU-Jacks auf, um zur Verfügung stehende Geräte und deren Eigenschaften auszulesen. Da es bei den Eigenschaften und Parametern der Homematic-Geräte allerdings keine klare Linie gibt, ist die anschließende Erkennung und Umsetzung in die Auto Discovery Einträge nicht in allen Fällen exakt und richtig möglich. Aus dem Grunde bietet Jacking2HA die Möglichkeit, Geräte, Kanäle und Parameter zu filtern oder auszuschließen und zu übernehmende Eigenschaften zu modifizieren und anzupassen. Ebenso sind Sprachübersetzungen an bestimmten Stellen möglich.
+## Funktionsweise
+Nach dem Start wird Verbindung mit dem CCU-Jack VEAP-Server aufgenommen, um die Homematic-Geräte der Zentrale und deren Datenpunkte abzufragen. Wahlweise werden auch Systemvariablen, Zentralenprogramme und die virtuellen Geräte des CCU-Jacks zur weiteren Verarbeitung abgefragt. Im Anschluss werden die gefundenen Datenpunkte analysiert und versucht, dazu passende Home Assistant Entitätstypen zu finden. Dabei sind die Eigenschaften der Datenpunkte wie z.B. Typ und Name grundlegend. Als Name der Home Assistant Entitäten wird der Name des Datenpunkts gesetzt. Somit ist Jacking2HA prinzipiell für alle Homematic(-IP)-Geräte geeignet und nicht auf bestimmte Modelle beschränkt. Leider lässt sich nur aufgrund der Eigenschaften der Datenpunkte in einigen Fällen nicht immer der richtige Entitätstyp finden. Dennoch würde an dieser Stelle eine funktionierende Konfiguration der Autodiscover Topics bzw. eine funktionierende yamlk-Konfiguration erstellt werden können. Um Einfluss auf das Gesamtzergebnis zu nehmen, besteht zum einen die Möglichkeit, über eine Positivliste die Erkennung der Datenpunkte auf bestimmte Punkte und Kanäle zu beschränken. Dies ist besonders dann hilfreich, wenn ein Homematic-Gerät gleichnamige Datenpunkte in verschiedenen Kanälen liefert. Zum anderen können nach der Erkennung Anpassungen angewendet werden um das Gesamtergebnis zu verfeinern und zu korrigieren. Anpassungen können vorgenommen werden pauschal für Datenpunkte unabhängig von Kanal und Gerät oder gezielt für bestimmte Datenpunkte bestimmter Geräte und bestimmter Kanäle und allem dazwischen. Anpassungen können jegliche Entitätseigenschaften angegeben werden, die von der Home Assistant MQTT Integration für Auto Discovery erlaubt sind. Anpassungen überschreiben grundsätzlich bereits vorhandene Eigenschaften und da Jacking2HA Anpassungen nicht weiter prüft, kann es passieren, dass Anpassungen zu Fehlern im Gesamtergebnis führen. Jacking2HA kann mit einem entsprechenden Kommandozeilenparameter aufgerufen werden, um Informationen auszugeben, die hilfreich sind um Anpassungen vorzunehmen.
+Wurden letztlich Erkennung und Anpassung durchlaufen, wird das Gesamtergebnis ausgegeben, entweder in Form von MQTT Auto Discovery Topics oder aber als yaml-Datei. Die yaml-Datei kann manuell in die Home Assistant Konfiguration eingebunden werden. In beiden Fällen werden alle Datenpunkte den jeweiligen Geräten zugeordnet. Dies erfolgt nicht über zusätzliche Ausgaben von Metadaten, sondern inline über die jeweilige Homeatic Geräte ID. Im Falle der Ausgabe über einen MQTT Broker, werden standardmnäßig Abkürzungen verwendet, die von der Home Assistant MQTT Integration verstanden werden. Dieses Verhalten kann abgeschaltet werden. Erfolgt die Ausgabe als yaml-Konfiguration, darf man sich von der Länge der Datei nicht erschrecken lassen. Für meine Homematic-Geräte inkl. Systemvariablen und Zentralenprogramme wird eine yaml-Datei mit einem Umfang von über 6500 Zeilen erstellt. Home Assistant benötigt ein wenig um eine Konfiguration dieses Umfangs zu lesen, danach ist aber keine Verlangsamung von Home Assistant feststellbar.
 
 
 ## Voraussetzungen
@@ -23,7 +24,8 @@ Optionen:
                         Pfad und Name zur JSON Konfigurationsdatei
 
   -e {all,device,program,sysvar}, --enumerate {all,device,program,sysvar}
-                        Optional. Gibt Informationen aus, die für die Anpassungen von gefundenen Datenpunkten hilfreich sind
+                        Optional. Gibt Informationen aus, die für die Anpassungen
+                        von gefundenen Datenpunkten hilfreich sind
 ```
 
 
