@@ -40,10 +40,10 @@ Optionen:
 "mqttUser" | "username" | Benutzername für die Anmeldung am MQTT Broker
 "mqttPass" | "pAssw0rd" | Passwort für die Anmeldung am MQTT Broker
 "mqttCaCert" | "root.pem" | Pfad und Dateiname des Root-Zertifikats für SSL-gesicherte Verbindung zum MQTT Broker
-"ccuJackUrl" | "https://hmccu3.com:2122" | CCU-Jack URL und Port. Sobald Port 2122 gegeben ist, wird SSL angenommen
+"ccuJackUrl" | "ht<span>tps://</span>hmccu3.com:2122" | CCU-Jack URL und Port. Sobald Port 2122 gegeben ist, wird SSL angenommen
 "ccuJackUser" | "cheffe" | Benutzername für die Anmeldung an CCU-Jack
 "ccuJackPass" | "t0pSicher" | Passwort für die Anmeldung an CCU-Jack
-"ccuJackCaCert" | "privnet.xmas.crt.pem" | Pfad und Dateiname des Root-Zertifikats für SSL-gesicherte Verbindung zu CCU-Jack
+"ccuJackCaCert" | "root.pem" | Pfad und Dateiname des Root-Zertifikats für SSL-gesicherte Verbindung zu CCU-Jack
 "ccuJackReadDevice" | true | Boolean. (De-)aktiviert die Erkennung von Homematic-Geräten
 "ccuJackReadProgram" | true | Boolean. (De-)aktiviert die Erkennung von Programmen der Homematic-Zentrale
 "ccuJackReadSysvar" | true | Boolean. (De-)aktiviert die Erkennung von Variablen der Homematic-Zentrale
